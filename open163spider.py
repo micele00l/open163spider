@@ -13,23 +13,28 @@ result_html2 = re_html2.findall(html_source)
 name_dict = {}
 name_dict2 = {}
 new_dict={}
+list_chinese=[]
+list_mp4=[]
 #构造2个字典
 def ddict():
     #将新文件名及id一一对应
-    for item in result_html:
-        name_string = item[73:-4]
-        id_string = item[54:62]
-        name_dict[id_string] = name_string
-        for item2 in result_html2:
-            name_dict2[item2] = id_string
-            new_dict[name_string] = item2 
+    for chinese_name in result_html:
+        name_string = chinese_name[73:-4]
+        id_string = chinese_name[54:62]
+        list_chinese.append(name_string)
+    for mp4_name in result_html2:
+        list_mp4.append(mp4_name)
+def make_mp4file():
+    for i in list_mp4:
+        f=open('%s' %i,'w')
+        f.close()
+def change_name():
+    for i in os.listdir('.'):
+        for k in new_dict:
+            if i == k:
+                os.rename(i,i+ new_dict[k])
  
-#def change_file_name():
-
 ddict()
-#change_file_name()
-print name_dict
-value_list =  name_dict2.values()
-print value_list
-print new_dict.keys()
-#change_file_name()
+new_dict = dict(zip(list_mp4, list_chinese))
+#make_mp4file()
+change_name()
