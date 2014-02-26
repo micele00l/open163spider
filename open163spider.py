@@ -24,15 +24,12 @@ def ddict():
             name_dict2[item2] = id_string
             new_dict[name_string] = item2 
  
-print new_dict.keys()
-'''def change_file_name():
-    for names in new_dict:
-        for xxx in os.listdir('.'):
-            if xxx == new_dict
-'''
+#def change_file_name():
+
 ddict()
 #change_file_name()
-#print name_dict
-#print name_dict2
-#print new_dict
+print name_dict
+value_list =  name_dict2.values()
+print value_list
+print new_dict.keys()
 #change_file_name()
