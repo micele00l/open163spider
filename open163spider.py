@@ -32,7 +32,7 @@ def change_name():
     for i in os.listdir('.'):
         for k in new_dict:
             if i == k:
-                os.rename(i,i+ new_dict[k])
+                os.rename(i,new_dict[k] + " " + i)
  
 ddict()
 new_dict = dict(zip(list_mp4, list_chinese))
